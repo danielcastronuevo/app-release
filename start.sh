@@ -158,6 +158,10 @@ sudo systemctl enable raspy-generalstats
 # --------------------------
 # Configurar autostart de Chromium
 # --------------------------
+
+#Antes usabamos este para abrir el chromium rápido al inicio, pero daba problemas de red
+# Exec=/bin/bash -c "sleep 10 && /usr/bin/chromium-browser --kiosk http://localhost:5000/counter/ --noerrdialogs --incognito --disable-restore-session-state"
+
 echo -e "${YELLOW}[+] Configurando autostart de Chromium${RESET}"
 mkdir -p ~/.config/autostart
 tee ~/.config/autostart/chromium-kiosk.desktop > /dev/null <<EOF
