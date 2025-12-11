@@ -164,7 +164,25 @@ tee ~/.config/autostart/chromium-kiosk.desktop > /dev/null <<EOF
 [Desktop Entry]
 Type=Application
 Name=Chromium Kiosk
-Exec=/bin/bash -c "sleep 10 && /usr/bin/chromium-browser --kiosk http://localhost:5000/counter/ --noerrdialogs --incognito --disable-restore-session-state"
+Exec=/bin/bash -c '
+  sleep 30
+
+  TIMEOUT=20
+  COUNT=0
+
+  while ! ping -c 1 -W 1 8.8.8.8 >/dev/null 2>&1; do
+    COUNT=$((COUNT+1))
+    [ "$COUNT" -ge "$TIMEOUT" ] && break
+    sleep 1
+  done
+
+  /usr/bin/chromium-browser \
+    --kiosk http://localhost:5000/counter/ \
+    --noerrdialogs \
+    --incognito \
+    --disable-restore-session-state
+'
+
 StartupNotify=false
 Terminal=false
 X-GNOME-Autostart-enabled=true
