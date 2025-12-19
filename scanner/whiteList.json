@@ -1,1 +1,18 @@
-{"pareja1":{"nombrePulsera":"A02","macPulsera":"C3:00:00:51:32:34","jugadores":["1","2"]},"pareja2":{"nombrePulsera":"A04","macPulsera":"C3:00:00:51:32:78","jugadores":["3","4"]}}
+{
+  "pareja1": {
+    "nombrePulsera": "B04",
+    "macPulsera": "C3:00:00:51:32:AD",
+    "jugadores": [
+      "1",
+      "2"
+    ]
+  },
+  "pareja2": {
+    "nombrePulsera": "B01",
+    "macPulsera": "C3:00:00:51:32:96",
+    "jugadores": [
+      "3",
+      "4"
+    ]
+  }
+}
